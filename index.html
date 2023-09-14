@@ -29,7 +29,7 @@
                         <header class="eb_profile d-flex justify-content-between align-items-center p-2">
                             <div class="user_profile">
                                 <img src="./assets/img/avatar_io.jpg" class="eb_picture" alt="avatar">
-                                <span class="eb_name">Nome Utente</span>
+                                <span class="eb_name ps-2">Nome Utente</span>
                             </div>
                             <div class="user_function">
                                 <i class="fa-solid fa-circle-notch fa-fw fa-lg me-2"></i>
@@ -58,13 +58,13 @@
                                 <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
 
-                            <!-- chat section -->
+                            <!-- chat list -->
                             <div class="eb_chat_list">
-                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
+                                <div v-for="(contact, index) in contacts" :key="id=index" class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
                                     <div class="chat_profile d-flex align-items-center">
-                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                        <div class="eb_info">
-                                            <span class="eb_name">Nome Utente</span>
+                                        <img :src="contact.avatar" class="eb_picture" alt="avatar">
+                                        <div class="eb_info ps-2">
+                                            <span class="eb_name">{{contact.name}}</span>
                                             <span class="eb_status">Ultimo messaggio inviato</span>
                                         </div>
                                     </div>
@@ -72,101 +72,6 @@
                                         <span class="eb_status">12:00</span>
                                     </div>
                                 </div>
-
-                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
-                                    <div class="chat_profile d-flex align-items-center">
-                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                        <div class="eb_info">
-                                            <span class="eb_name">Nome Utente</span>
-                                            <span class="eb_status">Ultimo messaggio inviato</span>
-                                        </div>
-                                    </div>
-                                    <div class="eb_lastmsg">
-                                        <span class="eb_status">12:00</span>
-                                    </div>
-                                </div>
-
-                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
-                                    <div class="chat_profile d-flex align-items-center">
-                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                        <div class="eb_info">
-                                            <span class="eb_name">Nome Utente</span>
-                                            <span class="eb_status">Ultimo messaggio inviato</span>
-                                        </div>
-                                    </div>
-                                    <div class="eb_lastmsg">
-                                        <span class="eb_status">12:00</span>
-                                    </div>
-                                </div>
-
-                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
-                                    <div class="chat_profile d-flex align-items-center">
-                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                        <div class="eb_info">
-                                            <span class="eb_name">Nome Utente</span>
-                                            <span class="eb_status">Ultimo messaggio inviato</span>
-                                        </div>
-                                    </div>
-                                    <div class="eb_lastmsg">
-                                        <span class="eb_status">12:00</span>
-                                    </div>
-                                </div>
-
-                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
-                                    <div class="chat_profile d-flex align-items-center">
-                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                        <div class="eb_info">
-                                            <span class="eb_name">Nome Utente</span>
-                                            <span class="eb_status">Ultimo messaggio inviato</span>
-                                        </div>
-                                    </div>
-                                    <div class="eb_lastmsg">
-                                        <span class="eb_status">12:00</span>
-                                    </div>
-                                </div>
-
-                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
-                                    <div class="chat_profile d-flex align-items-center">
-                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                        <div class="eb_info">
-                                            <span class="eb_name">Nome Utente</span>
-                                            <span class="eb_status">Ultimo messaggio inviato</span>
-                                        </div>
-                                    </div>
-                                    <div class="eb_lastmsg">
-                                        <span class="eb_status">12:00</span>
-                                    </div>
-                                </div>
-
-                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
-                                    <div class="chat_profile d-flex align-items-center">
-                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                        <div class="eb_info">
-                                            <span class="eb_name">Nome Utente</span>
-                                            <span class="eb_status">Ultimo messaggio inviato</span>
-                                        </div>
-                                    </div>
-                                    <div class="eb_lastmsg">
-                                        <span class="eb_status">12:00</span>
-                                    </div>
-                                </div>
-
-                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
-                                    <div class="chat_profile d-flex align-items-center">
-                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                        <div class="eb_info">
-                                            <span class="eb_name">Nome Utente</span>
-                                            <span class="eb_status">Ultimo messaggio inviato</span>
-                                        </div>
-                                    </div>
-                                    <div class="eb_lastmsg">
-                                        <span class="eb_status">12:00</span>
-                                    </div>
-                                </div>
-
-                                <!-- da aggiungere overflow con altezza!!! -->
-                            </div>
-
                         </main>
                     </div>
 
@@ -175,7 +80,7 @@
                         <div class="eb_chat d-flex justify-content-between align-items-center p-2">
                             <div class="chat_profile d-flex align-items-center">
                                 <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
-                                <div class="eb_info">
+                                <div class="eb_info ps-2">
                                     <span class="eb_name">Nome Utente</span>
                                     <span class="eb_status">Ultimo accesso</span>
                                 </div>
