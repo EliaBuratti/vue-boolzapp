@@ -39,9 +39,43 @@
                         </header>
 
                         <main>
-                            <div class="eb_notification">
-                                
+                            <!-- notification alert -->
+                            <div class="eb_notification d-flex align-items-center ps-4">
+                                <a href="##">
+                                    <i class="fa-solid fa-bell-slash fa-xl"></i>
+                                </a>
+                                <div class="eb_info ps-2">
+                                    <span class="eb_name">Ricevi notifiche di nuovi messaggi</span>
+                                    <span class="eb_status text-decoration-underline">Attiva notifiche desktop</span>
+                                </div>
                             </div>
+
+                            <!-- search chat -->
+                            <div class="input-group p-2 eb_search">
+                                <span class="input-group-text rounded-0" id="basic-addon1">
+                                    <i class="fa-solid fa-magnifying-glass fa-fw mx-2"></i>
+                                </span>
+                                <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <!-- chat section -->
+                            <div class="eb_chat_list">
+                                <div class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
+                                    <div class="chat_profile d-flex align-items-center">
+                                        <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
+                                        <div class="eb_info">
+                                            <span class="eb_name">Nome Utente</span>
+                                            <span class="eb_status">Ultimo messaggio inviato</span>
+                                        </div>
+                                    </div>
+                                    <div class="eb_lastmsg">
+                                        <span class="eb_status">12:00</span>
+                                    </div>
+                                </div>
+
+                                <!-- da aggiungere overflow con altezza!!! -->
+                            </div>
+
                         </main>
                     </div>
 

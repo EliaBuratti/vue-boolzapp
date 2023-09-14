@@ -57,11 +57,35 @@ i {
 .eb_notification {
     background-color: var(--bg-notification);
     height: 5rem;
+
+    & a {
+        background-color: rgb(242 251 255 / 90%);
+        width: 3rem;
+        aspect-ratio: 1 / 1;
+        padding: 0.75rem 0.5rem;
+        border-radius: 50%;
+        
+        > i {
+            color: var(--bg-notification);
+        }
+    }
 }
+
+.eb_search {
+    background-color: var(--bg-head-chat);
+}
+
+.eb_chat_list {
+    
+    overflow: auto;
+}
+
+
 
 /* id */
 #sidebar {
     width: 40%;
+    background-color: white;
 }
 
 #chat {
