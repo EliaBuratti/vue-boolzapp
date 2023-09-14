@@ -83,6 +83,10 @@ i {
     overflow-y: scroll;
 }
 
+.eb_chat_list div:hover {
+    background-color: var(--bg-head-chat);
+}
+
 .messages {
     background-image: url(../img/mine.jpg);
     width: 100%;
@@ -97,10 +101,15 @@ i {
     margin: 1rem 0;
 }
 
+.eb_time_send {
+    color: var(--icon-color);
+    font-size: 0.75rem;
+    text-align: end;
+}
+
 .eb_user {
     background-color: var(--bg-msg-send);
     margin-left: auto;
-    margin-right: 1rem;
     position: relative;
 }
 
@@ -118,7 +127,6 @@ i {
 .eb_sender {
     background-color: var(--bg-white);
     margin-right: auto;
-    margin-left: 1rem;
     position: relative;
 }
 

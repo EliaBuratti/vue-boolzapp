@@ -15,6 +15,9 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+
+        chat:'',
+
         contacts: [
             {
                 name: 'Michele',

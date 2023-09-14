@@ -60,7 +60,7 @@
 
                             <!-- chat list -->
                             <div class="eb_chat_list">
-                                <div v-for="(contact, index) in contacts" :key="id=index" class="border-1 border-bottom d-flex justify-content-between bg-white px-3 py-2">
+                                <div v-for="(contact, index) in contacts" :key="id=index" class="border-1 border-bottom d-flex justify-content-between px-3 py-2">
                                     <div class="chat_profile d-flex align-items-center">
                                         <img :src="contact.avatar" class="eb_picture" alt="avatar">
                                         <div class="eb_info ps-2">
@@ -93,12 +93,18 @@
                         </div>
 
                         <!-- messages -->
-                        <div class="messages">
+                        <div class="messages px-3">
                             <div class="eb_message eb_user">
                                 ciao come stai?
+                                <div class="eb_time_send">
+                                    12:00
+                                </div>
                             </div>
                             <div class="eb_message eb_sender">
-                                ciao come stai?
+                                ciao come stai? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos tempora consectetur laborum eum mollitia fugit possimus magni voluptas ab, numquam optio est, officia odio recusandae molestias ad ipsam cupiditate error?
+                                <div class="eb_time_send">
+                                    12:00
+                                </div>
                             </div>
 
                         </div>
