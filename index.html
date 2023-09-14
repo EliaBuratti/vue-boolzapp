@@ -32,9 +32,21 @@
                                 <span class="eb_name ps-2">Sofia</span>
                             </div>
                             <div class="user_function">
-                                <i class="fa-solid fa-circle-notch fa-fw fa-lg me-2"></i>
-                                <i class="fa-solid fa-message fa-fw fa-lg me-1"></i>
-                                <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg"></i>
+
+                                <!-- story -->
+                                <a href="##">                                    
+                                    <i class="fa-solid fa-circle-notch fa-fw fa-lg me-2"></i>
+                                </a>
+
+                                <!-- message -->
+                                <a href="##">
+                                    <i class="fa-solid fa-message fa-fw fa-lg me-1"></i>
+                                </a>
+
+                                <!-- other -->
+                                <a href="##">
+                                    <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg"></i>
+                                </a>
                             </div>
                         </header>
 
@@ -60,7 +72,7 @@
 
                             <!-- chat list -->
                             <div class="eb_chat_list">
-                                <div v-for="(contact, index) in contacts" :key="id=index" @click="activeIndex = index" class="border-1 border-bottom d-flex justify-content-between px-3 py-2">
+                                <div v-for="(contact, index) in contacts" :key="id=index" @click="activeIndex = index" class="border-top border-1 d-flex justify-content-between px-3 py-2">
                                     <div class="chat_profile d-flex align-items-center">
                                         <img :src="contact.avatar" class="eb_picture" alt="avatar">
                                         <div class="eb_info ps-2">
@@ -90,9 +102,20 @@
                                 </div>
                             </div>
                             <div class="chat_function">
-                                <i class="fa-solid fa-magnifying-glass fa-fw fa-lg me-2"></i>
-                                <i class="fa-solid fa-paperclip fa-fw fa-lg me-1"></i>
-                                <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg"></i>
+                                <!-- search -->
+                                <a href="##">
+                                    <i class="fa-solid fa-magnifying-glass fa-fw fa-lg me-2"></i>
+                                </a>
+
+                                <!-- add file -->
+                                <a href="##"> 
+                                    <i class="fa-solid fa-paperclip fa-fw fa-lg me-1"></i>
+                                </a>
+
+                                <!-- other -->
+                                <a href="##">                                    
+                                    <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg"></i>
+                                </a>
                             </div>
                         </div>
 
@@ -111,6 +134,7 @@
                         <!-- input message -->
                         <div class="eb_input d-flex align-items-center ">
 
+                            <!-- emoji -->
                             <a href="##" class="mx-4">
                                 <i class="fa-regular fa-face-smile fa-lg fa-fw"></i>
                             </a>
@@ -118,10 +142,15 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Srivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
                                 <span class="input-group-text bg-primary" id="basic-addon1">
-                                    <i class="fa-regular fa-paper-plane fa-lg fa-fw text-white"></i>
+
+                                    <!-- add file -->
+                                    <a href="##">
+                                        <i class="fa-regular fa-paper-plane fa-lg fa-fw text-white"></i>
+                                    </a>
                                 </span>
                             </div>
 
+                            <!-- new audio message -->
                             <a href="##" class="mx-4">
                                 <i class="fa-solid fa-microphone fa-lg fa-fw"></i>
                             </a>

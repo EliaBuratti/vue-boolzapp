@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 /* utilities */
@@ -21,6 +22,10 @@
 
 i {
     color: var(--icon-color);
+}
+
+body {
+    background-color: var(--icon-color);
 }
 
 /* classes */
@@ -85,6 +90,7 @@ i {
 .eb_chat_list {
     height: calc(90vh - 12.5rem);
     overflow-y: scroll;
+    background-color: var(--bg-white);
 }
 
 .eb_chat_list div:hover {
