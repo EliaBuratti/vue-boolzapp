@@ -187,7 +187,22 @@ createApp({
 
   //function
   methods: {
+    
+    lastMsgSend (array, destination) {
+        const messageObj = [...array.messages];
+        let lastSend=[];
 
+        for (const key in messageObj) {
+
+            if (messageObj[key].status === destination) {
+                lastSend = [];
+                lastSend.push(key)
+            }
+            
+        }
+        return lastSend;
+    }
+    
     }, 
 
 }
