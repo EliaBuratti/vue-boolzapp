@@ -4,3 +4,68 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* utilities */
+
+:root{
+    --bg-top:#009688;
+    --bg-main:#d7dbd7;
+    --bg-head-chat:#eaeaea;
+    --icon-color:#b1b1b1;
+    --bg-notification: #8edafc;
+}
+
+/* element */
+
+i {
+    color: var(--icon-color);
+}
+
+/* classes */
+
+.eb_container {
+    background-color: var(--bg-top);
+    width: 100vw;
+    height: 100vh;
+    padding: 5vh 10vw ;
+}
+
+.eb_app {
+    width: 80vw;
+    height: 90vh;
+    display: flex;
+}
+
+.eb_profile, .eb_chat {
+    background-color: var(--bg-head-chat);
+    width: 100%;
+    height: 4rem;
+}
+
+.eb_picture {
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+.eb_status {
+    display: block;
+    color: var(--icon-color);
+    font-size: 0.75rem;
+}
+
+.eb_notification {
+    background-color: var(--bg-notification);
+    height: 5rem;
+}
+
+/* id */
+#sidebar {
+    width: 40%;
+}
+
+#chat {
+    width: 60%;
+    background-color: palevioletred;
+    height: 4rem;
+}
