@@ -108,7 +108,7 @@ i {
     position: absolute;
     content: '';
     width: 0; height: 0; line-height: 0;
-    bottom: -0.6rem;
+    bottom: -0.5rem;
     right: 0;
     border-right:  0.6rem solid var(--bg-msg-send);
     border-top:   0.6rem solid transparent;
@@ -126,7 +126,7 @@ i {
     position: absolute;
     content: '';
     width: 0; height: 0; line-height: 0;
-    bottom: -0.6rem;
+    bottom: -0.5rem;
     left: 0;
     border-left:  0.6rem solid var(--bg-white);
     border-top:   0.6rem solid transparent;
@@ -137,7 +137,7 @@ i {
 
 .eb_input {
     height: 4rem;
-    background-color: var(--bg-main);
+    background-color: var(--bg-head-chat);
 }
 
 /* id */
