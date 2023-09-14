@@ -29,7 +29,7 @@
                         <header class="eb_profile d-flex justify-content-between align-items-center p-2">
                             <div class="user_profile">
                                 <img src="./assets/img/avatar_io.jpg" class="eb_picture" alt="avatar">
-                                <span class="eb_name ps-2">Nome Utente</span>
+                                <span class="eb_name ps-2">Sofia</span>
                             </div>
                             <div class="user_function">
                                 <i class="fa-solid fa-circle-notch fa-fw fa-lg me-2"></i>
@@ -79,9 +79,9 @@
                     <div id="sender_profile">
                         <div class="eb_chat d-flex justify-content-between align-items-center p-2">
                             <div class="chat_profile d-flex align-items-center">
-                                <img src="./assets/img/avatar_1.jpg" class="eb_picture" alt="avatar">
+                                <img :src="contacts[activeIndex].avatar" class="eb_picture" alt="avatar">
                                 <div class="eb_info ps-2">
-                                    <span class="eb_name">Nome Utente</span>
+                                    <span class="eb_name">{{contacts[activeIndex].name}}</span>
                                     <span class="eb_status">Ultimo accesso</span>
                                 </div>
                             </div>
@@ -94,19 +94,14 @@
 
                         <!-- messages -->
                         <div class="messages px-3">
-                            <div class="eb_message eb_user">
-                                ciao come stai?
-                                <div class="eb_time_send">
-                                    12:00
-                                </div>
-                            </div>
-                            <div class="eb_message eb_sender">
-                                ciao come stai? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos tempora consectetur laborum eum mollitia fugit possimus magni voluptas ab, numquam optio est, officia odio recusandae molestias ad ipsam cupiditate error?
-                                <div class="eb_time_send">
-                                    12:00
-                                </div>
-                            </div>
 
+                            <div v-for="(messageObj, indexOf) in contacts[activeIndex].messages" class="eb_message" :class="messageObj.status === 'sent' ? 'eb_user' : 'eb_sender' ">
+                                {{ messageObj.message }}
+                                <div class="eb_time_send">
+                                    {{ messageObj.date }}
+                                </div>
+                            </div>
+                            
                         </div>
 
                         <!-- input message -->
@@ -135,11 +130,12 @@
 
     </div>
 
-    <!-- bootstrap script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
+    
     <!-- vueJs -->
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
     <!-- my script -->
     <script src="./assets/js/script.js"></script>

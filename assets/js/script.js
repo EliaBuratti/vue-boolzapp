@@ -16,7 +16,7 @@ createApp({
   data() {
     return {
 
-        chat:'',
+        activeIndex: 0, // numero dell'utente da visualizzare la chat
 
         contacts: [
             {
