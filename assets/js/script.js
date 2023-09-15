@@ -12,7 +12,7 @@ Milestone 2☑️
 ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
 messaggi relativi al contatto attivo all’interno del pannello della conversazione
 ● Click sul contatto mostra la conversazione del contatto cliccato
-Milestone 3
+Milestone 3☑️
 ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
 “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
@@ -241,7 +241,23 @@ createApp({
     
             //libero il campo input una volta che ho inviato il messaggio
             this.userMsg = '';
+
+            //risposta automatica
+            this.autoResponse(dataMsg);
         }
+    },
+
+    autoResponse (dataMessage) {
+        
+        setTimeout(() => {
+
+            //ottengo nuocamente la data attuale
+            const actualDate = new Date().toLocaleString();
+
+            //pusho il nuovo messaggio nell'array corrispondente
+            dataMessage.push({ date: actualDate, message:'Ok!', status: 'received'});
+
+          }, 1000);
     }
     
     }, 
