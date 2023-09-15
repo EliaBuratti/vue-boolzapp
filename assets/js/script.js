@@ -39,6 +39,8 @@ createApp({
 
         userSearch : '', // testo che inserisce l'tente per cercare la chat
 
+        positionMsg : [],
+
         contacts: [
             {
                 name: 'Michele',
@@ -289,12 +291,15 @@ createApp({
             //faccio apparire solo i contatti corrispondenti alla ricerca
             if (nameContact.search(nameSearch) == 0) {
                 
-                console.log(nameSearch);
                 this.contacts[index].visible = true; 
                 userFind.push(index);
             };
         });
 
+    },
+
+    deleteMsg () {
+        console.log('eliminato ',this.positionMsg);
     },
 
     

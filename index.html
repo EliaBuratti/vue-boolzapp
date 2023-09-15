@@ -124,7 +124,35 @@
                         <div class="messages px-3" id="message-window">
 
                             <div v-for="(messageObj, indexOf) in contacts[activeContact].messages" class="eb_message" :class="messageObj.status === 'sent' ? 'eb_user' : 'eb_sender' ">
-                                {{ messageObj.message }}
+
+                                <div class="d-flex align-items-center">
+                                    <!-- menu opzioni -->
+                                    <div class="dropdown" :class="messageObj.status === 'received' ? '' : 'eb_none' ">
+                                        <button class="btn p-1"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <i class="fa-solid fa-chevron-down fa-lg"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="##">Info</a></li>
+                                            <li><a class="dropdown-item" href="##">Cancella</a></li>
+                                        </ul>
+                                      </div>
+    
+                                    <!-- testo del messaggio -->
+                                    {{ messageObj.message }}
+    
+                                    <!-- menu opzioni -->
+                                    <div class="dropdown" :class="messageObj.status !== 'received' ? '' : 'eb_none' ">
+                                        <button class="btn p-1"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <i class="fa-solid fa-chevron-down fa-lg"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="##">Info</a></li>
+                                          <li><a class="dropdown-item" href="##">Cancella</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
                                 <div class="eb_time_send">
                                     {{ messageObj.date }}
                                 </div>
