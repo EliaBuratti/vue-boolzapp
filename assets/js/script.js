@@ -222,17 +222,15 @@ createApp({
     },
 
     sendMsg (){
-        console.log(this.userMsg);
-        console.log(this.activeContact);
 
+        //se il campo dei messaggi non è vuoto
         if (this.userMsg !== ''){
 
             //recupero l'array corrispondente dei messaggi
             const dataMsg = this.contacts[this.activeContact].messages;
-            console.log(dataMsg);
     
             //ottengo la data attuale
-            const actualDate = new Date().toLocaleDateString();
+            const actualDate = new Date().toLocaleString();
     
             //pusho il nuovo messaggio nell'array corrispondente
             dataMsg.push({ date: actualDate, message:this.userMsg, status: 'sent'});

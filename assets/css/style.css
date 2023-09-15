@@ -60,6 +60,7 @@ body {
     display: block;
     color: var(--icon-color);
     font-size: 0.75rem;
+
 }
 
 .eb_notification {
@@ -92,10 +93,6 @@ body {
 
 .eb_chat_list div:hover {
     background-color: var(--bg-head-chat);
-}
-
-.eb_last_msg {
-    overflow: hidden;
 }
 
 .messages {
