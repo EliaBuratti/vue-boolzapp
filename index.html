@@ -67,8 +67,10 @@
                                 <span class="input-group-text rounded-0" id="basic-addon1">
                                     <i class="fa-solid fa-magnifying-glass fa-fw mx-2"></i>
                                 </span>
-                                <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="search" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" v-model="userSearch" @keyup="searchContact (userSearch)" aria-label="Username" aria-describedby="basic-addon1">
+                                {{userSearch}}
                             </div>
+
 
                             <!-- chat list -->
                             <div class="eb_chat_list">

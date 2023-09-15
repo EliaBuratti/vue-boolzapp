@@ -17,6 +17,10 @@ Milestone 3☑️
 “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
 un “ok” come risposta, che apparirà dopo 1 secondo.
+Milestone 4
+● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+“mar” rimangono solo Marco e Martina)
  */
 
 const { createApp } = Vue
@@ -28,6 +32,8 @@ createApp({
         activeContact: 0, // numero dell'utente da visualizzare la chat
 
         userMsg : '',   //testo che inserisce l'utente
+
+        userSearch : '', // testo che inserisce l'tente per cercare la chat
 
         contacts: [
             {
@@ -258,9 +264,35 @@ createApp({
             dataMessage.push({ date: actualDate, message:'Ok!', status: 'received'});
 
           }, 1000);
+    },
+
+    searchContact (userInput) {
+        console.log(userInput, '----------------------------------');
+        let i = userInput.length;
+        let nameSlice = [];
+        
+        this.contacts.forEach((element) => {
+            const nameContact = element.name;
+            nameSlice.push(nameContact.slice(0,i));
+        });
+        
+        if (nameSlice.includes(userInput.charAt(0).toUpperCase() + userInput.slice(1))) {
+            console.log('eccolo qua'); 
+        } 
+        console.log(nameSlice);
+        console.log(userInput.charAt(0).toUpperCase() + userInput.slice(1));
+
+
+        
+          
+// Expected output: "a"
+// Expected output: "b"
+// Expected output: "c"
+
+    
     }
     
-    }, 
+}, 
 
 }
 ).mount('#app');
