@@ -25,7 +25,8 @@ i {
 }
 
 body {
-    background-color: var(--icon-color);
+    height: 100vh;
+    background-image: linear-gradient(to bottom, var(--bg-top) 0, var(--bg-top) 16px, var(--icon-color) 160px, var(--icon-color) 100%);
 }
 
 /* classes */
@@ -34,16 +35,12 @@ body {
     width: 100vw;
     height: 10rem;
     padding: 5vh 10vw;
-    background-color: var(--bg-top);
-    box-shadow:0 0 10px 50px var(--bg-top);
-    position: relative;
 }
 
 .eb_app {
     width: 80vw;
     height: 90vh;
     display: flex;
-    position: absolute;
 
 }
 
@@ -73,7 +70,7 @@ body {
         background-color: rgb(242 251 255 / 90%);
         width: 3rem;
         aspect-ratio: 1 / 1;
-        padding: 0.75rem 0.5rem;
+        padding: 0.75rem 0.55rem;
         border-radius: 50%;
         
         > i {
@@ -95,6 +92,10 @@ body {
 
 .eb_chat_list div:hover {
     background-color: var(--bg-head-chat);
+}
+
+.eb_last_msg {
+    overflow: hidden;
 }
 
 .messages {
@@ -153,7 +154,7 @@ body {
 }
 
 
-.eb_input {
+.eb_toolbar {
     height: 4rem;
     background-color: var(--bg-head-chat);
 }

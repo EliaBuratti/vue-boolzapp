@@ -1,13 +1,22 @@
 /* Descrizione:
 Iniziamo a lavorare alla nostra replica della nota app di messaggistica. L'esercitazione sará divisa in piú giornate, oggi iniziamo a lavorare alla prima milestone che vi
 riporto di seguito:
-Milestone 1
-Replica della grafica con la possibilità di avere messaggi scritti dall'utente (verdi) e dall'interlocutore (bianco) assegnando due classi CSS diverse
-Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
 Consigli:
 lavorate ad una task per volta, finita la prima passate alla seconda
 ragionate con calma sugli strumenti necessari per svolgere la seconda task,
 leggete le pagine della documentazione che vi ho indicato oggi in classe.
+Milestone 1☑️
+Replica della grafica con la possibilità di avere messaggi scritti dall'utente (verdi) e dall'interlocutore (bianco) assegnando due classi CSS diverse
+Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
+Milestone 2☑️
+● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
+messaggi relativi al contatto attivo all’interno del pannello della conversazione
+● Click sul contatto mostra la conversazione del contatto cliccato
+Milestone 3
+● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+“enter” il testo viene aggiunto al thread sopra, come messaggio verde
+● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+un “ok” come risposta, che apparirà dopo 1 secondo.
  */
 
 const { createApp } = Vue
@@ -16,7 +25,9 @@ createApp({
   data() {
     return {
 
-        activeIndex: 0, // numero dell'utente da visualizzare la chat
+        activeContact: 0, // numero dell'utente da visualizzare la chat
+
+        userMsg : '',   //testo che inserisce l'utente
 
         contacts: [
             {
@@ -187,6 +198,13 @@ createApp({
 
   //function
   methods: {
+
+    /**
+     * 
+     * @param {array or proxyModule} array expected array.messages
+     * @param {string} destination expected 'received' or 'sent'
+     * @returns number of object to find the last 'received' or 'sent'
+     */
     
     lastMsgSend (array, destination) {
         const messageObj = [...array.messages];
@@ -201,6 +219,31 @@ createApp({
             
         }
         return lastSend;
+    },
+
+    sendMsg (){
+        console.log(this.userMsg);
+        console.log(this.activeContact);
+
+        if (this.userMsg !== ''){
+
+            //recupero l'array corrispondente dei messaggi
+            const dataMsg = this.contacts[this.activeContact].messages;
+            console.log(dataMsg);
+    
+            //ottengo la data attuale
+            const actualDate = new Date().toLocaleDateString();
+    
+            //pusho il nuovo messaggio nell'array corrispondente
+            dataMsg.push({ date: actualDate, message:this.userMsg, status: 'sent'});
+    
+            //scorro in fondo alla pagina
+            const chatWindow = document.querySelector('#message-window');
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+    
+            //libero il campo input una volta che ho inviato il messaggio
+            this.userMsg = '';
+        }
     }
     
     }, 

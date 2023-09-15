@@ -72,7 +72,7 @@
 
                             <!-- chat list -->
                             <div class="eb_chat_list">
-                                <div v-for="(contact, index) in contacts" :key="id=index" @click="activeIndex = index" class="border-top border-1 d-flex justify-content-between px-3 py-2">
+                                <div v-for="(contact, index) in contacts" :key="id=index" @click="activeContact = index" class="border-top border-1 d-flex justify-content-between px-3 py-2">
                                     <div class="chat_profile d-flex align-items-center">
                                         <img :src="contact.avatar" class="eb_picture" alt="avatar">
                                         <div class="eb_info ps-2">
@@ -95,10 +95,10 @@
                     <div id="sender_profile">
                         <div class="eb_chat d-flex justify-content-between align-items-center p-2">
                             <div class="chat_profile d-flex align-items-center">
-                                <img :src="contacts[activeIndex].avatar" class="eb_picture" alt="avatar">
+                                <img :src="contacts[activeContact].avatar" class="eb_picture" alt="avatar">
                                 <div class="eb_info ps-2">
-                                    <span class="eb_name">{{contacts[activeIndex].name}}</span>
-                                    <span class="eb_status"> Ultimo accesso alle: {{ contacts[activeIndex].messages[lastMsgSend(contacts[activeIndex], 'received')].date}}</span>
+                                    <span class="eb_name">{{contacts[activeContact].name}}</span>
+                                    <span class="eb_status"> Ultimo accesso alle: {{ contacts[activeContact].messages[lastMsgSend(contacts[activeContact], 'received')].date}}</span>
                                 </div>
                             </div>
                             <div class="chat_function">
@@ -120,9 +120,9 @@
                         </div>
 
                         <!-- messages -->
-                        <div class="messages px-3">
+                        <div class="messages px-3" id="message-window">
 
-                            <div v-for="(messageObj, indexOf) in contacts[activeIndex].messages" class="eb_message" :class="messageObj.status === 'sent' ? 'eb_user' : 'eb_sender' ">
+                            <div v-for="(messageObj, indexOf) in contacts[activeContact].messages" class="eb_message" :class="messageObj.status === 'sent' ? 'eb_user' : 'eb_sender' ">
                                 {{ messageObj.message }}
                                 <div class="eb_time_send">
                                     {{ messageObj.date }}
@@ -131,17 +131,18 @@
                             
                         </div>
 
-                        <!-- input message -->
-                        <div class="eb_input d-flex align-items-center ">
+                        <!-- toolbar -->
+                        <div class="eb_toolbar d-flex align-items-center ">
 
                             <!-- emoji -->
                             <a href="##" class="mx-4">
                                 <i class="fa-regular fa-face-smile fa-lg fa-fw"></i>
                             </a>
 
+                            <!-- input message -->
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Srivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
-                                <span class="input-group-text bg-primary" id="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Srivi un messaggio" v-model="userMsg" @keyup.enter="sendMsg()" aria-label="Username" aria-describedby="basic-addon1">
+                                <span class="input-group-text bg-primary" @click="sendMsg()" id="basic-addon1">
 
                                     <!-- add file -->
                                     <a href="##">
