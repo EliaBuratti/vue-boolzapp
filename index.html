@@ -68,13 +68,12 @@
                                     <i class="fa-solid fa-magnifying-glass fa-fw mx-2"></i>
                                 </span>
                                 <input type="search" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" v-model="userSearch" @keyup="searchContact (userSearch)" aria-label="Username" aria-describedby="basic-addon1">
-                                {{userSearch}}
                             </div>
 
 
-                            <!-- chat list -->
+                            <!-- chat list   contact.visible == true ? 'd-flex' : 'eb_none' -->
                             <div class="eb_chat_list">
-                                <div v-for="(contact, index) in contacts" :key="id=index" @click="activeContact = index" class="border-top border-1 d-flex justify-content-between px-3 py-2">
+                                <div v-for="(contact, index) in contacts" :key="id=index" @click="activeContact = index" :id="index" :class="contact.visible == true ? 'd-flex' : 'eb_none'" class="border-top border-1 justify-content-between px-3 py-2" >
                                     <div class="chat_profile d-flex align-items-center">
                                         <img :src="contact.avatar" class="eb_picture" alt="avatar">
                                         <div class="eb_info ps-2">

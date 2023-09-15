@@ -267,30 +267,31 @@ createApp({
     },
 
     searchContact (userInput) {
-        console.log(userInput, '----------------------------------');
+
+        //variabili dove mi salvo gli input e le corrispondnze
         let i = userInput.length;
-        let nameSlice = [];
-        
-        this.contacts.forEach((element) => {
-            const nameContact = element.name;
-            nameSlice.push(nameContact.slice(0,i));
-        });
-        
-        if (nameSlice.includes(userInput.charAt(0).toUpperCase() + userInput.slice(1))) {
-            console.log('eccolo qua'); 
-        } 
-        console.log(nameSlice);
-        console.log(userInput.charAt(0).toUpperCase() + userInput.slice(1));
-
-
-        
-          
-// Expected output: "a"
-// Expected output: "b"
-// Expected output: "c"
-
+        let nameSearch =  userInput.toUpperCase();    /* userInput.charAt(0).toUpperCase() + userInput.slice(1); */
+        let userFind = [];
     
-    }
+        //ciclo l'input utente
+        this.contacts.forEach((element, index) => {
+
+            //trasformo tutte le lettere in maiuscolo
+            const nameContact = element.name.toUpperCase();
+
+            //faccio sparire tutti i contatti momentaneamente
+            this.contacts[index].visible = false; 
+
+            //faccio apparire solo i contatti corrispondenti alla ricerca
+            if (nameContact.search(nameSearch) >= 0) {
+                
+                this.contacts[index].visible = true; 
+                userFind.push(index);
+            };
+        });
+
+    },
+
     
 }, 
 

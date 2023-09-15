@@ -85,6 +85,9 @@ body {
     height: 3.5rem;
 }
 
+.eb_none {
+    display: none;
+}
 .eb_chat_list {
     height: calc(90vh - 12.5rem);
     overflow-y: scroll;
