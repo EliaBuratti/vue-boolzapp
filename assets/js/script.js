@@ -39,8 +39,6 @@ createApp({
 
         userSearch : '', // testo che inserisce l'tente per cercare la chat
 
-        positionMsg : [],
-
         contacts: [
             {
                 name: 'Michele',
@@ -298,8 +296,31 @@ createApp({
 
     },
 
-    deleteMsg () {
-        console.log('eliminato ',this.positionMsg);
+    deleteMsg (numMsg) {
+
+        this.statusMsg('deleted', numMsg);
+
+    },
+
+    statusMsg (status, num) {
+
+
+
+        if(status === 'sent') {
+            attribute = 'eb_user';
+
+        } else if (status === 'received') {
+            attribute = 'eb_sender';
+
+        } else {
+            const idMsg = String(num);
+
+            console.log(document.getElementById(num));
+
+            document.getElementById(num).classList.add('eb_none')
+        }
+
+        return attribute;
     },
 
     
