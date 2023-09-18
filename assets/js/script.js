@@ -216,19 +216,20 @@ createApp({
      * @returns number of object to find the last 'received' or 'sent'
      */
     
-    lastMsgSend (array, destination) {
+    lastMsgSend (array, destination, dateMsg) { //dateMsg la utilizzo per tenere in memoria l'ultimo accesso quando cancello il messaggio
+
         const messageObj = [...array.messages];
-        let lastSend=[];
 
-        for (const key in messageObj) {
+        let lastAccess = '';
 
-            if (messageObj[key].status === destination) {
-                lastSend = [];
-                lastSend.push(key)
+        //ciclo l'array per trovare l'ultimo accesso
+        messageObj.forEach(message => {
+            if (message.status === destination) {
+                lastAccess = message.date;
             }
-            
-        }
-        return lastSend;
+        });
+        
+        return lastAccess;
     },
 
     previewMessage (contactUser) {
@@ -313,7 +314,7 @@ createApp({
     searchContact (userInput) {  //ricerco se la lettera/e è presente in tutto il nome
 
         //variabili dove mi salvo gli input e le corrispondnze
-        let nameSearch = userInput.charAt(0).toUpperCase() + userInput.slice(1);
+        let nameSearch = userInput.charAt(0).toUpperCase() + userInput.slice(1); // trasformo la prima lettera dell'input utente in maiuscolo e li resto lo lascio minuscolo
         let nameSlice = [];
         let userFind = [];
 
@@ -343,18 +344,21 @@ createApp({
     deleteMsg (numMsg) {
 
         this.statusMsg('deleted', numMsg);
-
-        console.log(numMsg);
-
+        
         this.contacts[this.activeContact].messages.splice(numMsg, 1);
 
-        console.log(this.contacts[this.activeContact].messages);
+        const messages = this.contacts[this.activeContact].messages
+        
+        //console.log(numMsg);
 
+        //console.log(this.contacts[this.activeContact].messages);
+
+        console.log(messages);
         console.log(this.contacts);
 
     },
 
-    statusMsg (status) {
+    statusMsg (status, msgNum) {
 
 
 
@@ -364,6 +368,9 @@ createApp({
         } else if (status === 'received') {
             attribute = 'eb_sender';
 
+        } else {
+            const markupMsg = document.getElementById(msgNum);
+            markupMsg.classList.add('eb_none');
         }
         return attribute;
     }

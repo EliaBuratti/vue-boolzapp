@@ -100,7 +100,7 @@
                                 <img :src="contacts[activeContact].avatar" class="eb_picture" alt="avatar">
                                 <div class="eb_info ps-2">
                                     <span class="eb_name">{{contacts[activeContact].name}}</span>
-                                    <span class="eb_status"> Ultimo accesso alle: {{ contacts[activeContact].messages[lastMsgSend(contacts[activeContact], 'received')].date}}</span>
+                                    <span class="eb_status"> Ultimo accesso alle: {{ lastMsgSend(contacts[activeContact], 'received') }}</span>
                                 </div>
                             </div>
                             <div class="chat_function">
