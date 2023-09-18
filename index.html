@@ -73,19 +73,18 @@
 
                             <!-- chat list   contact.visible == true ? 'd-flex' : 'eb_none' -->
                             <div class="eb_chat_list">
-                                <div v-for="(contact, index) in contacts" :key="id=index" @click="activeContact = index" :id="contact" :class="contact.visible == true ? 'd-flex' : 'eb_none'" class="border-top border-1 justify-content-between px-3 py-2" >
+                                <div v-for="(contact, index) in contacts" :key="index" @click="activeContact = index" :id="contact" :class="contact.visible == true ? 'd-flex' : 'eb_none'" class="border-top border-1 justify-content-between px-3 py-2" >
                                     <div class="chat_profile d-flex align-items-center">
                                         <img :src="contact.avatar" class="eb_picture" alt="avatar">
                                         <div class="eb_info ps-2">
                                             <span class="eb_name">{{contact.name}}</span>
-                                            <span class="eb_status eb_msg_preview">{{ contact.messages[contact.messages.length - 1].message }}</span> <!-- visualizzo l'ultimo messaggio e lo taglio se è piu lungo. Tramite css-->
+                                            <span class="eb_status eb_msg_preview">{{ contact.messages[contact.messages.length - 1].message }}</span> <!-- visualizzo l'ultimo messaggio e lo taglio se è piu lungo Tramite css-->
 
                                             <!-- contact.messages[lastMsgSend(contact, 'sent')].message  con questo vedo l'ultimo messaggio inviato da me -->
                                         </div>
                                     </div>
                                     <div class="eb_lastmsg">
                                         <span class="eb_status">{{contact.messages[contact.messages.length - 1].date}}</span> <!-- visualizzo la data dell'ultimo messaggio -->
-                                        <!-- contact.messages[lastMsgSend(contact, 'sent')].date  con questo vedo l'orario dell'ultimo messaggio inviato da me -->
                                     </div>
                                 </div>
                             </div>

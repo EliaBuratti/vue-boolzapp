@@ -231,6 +231,10 @@ createApp({
         return lastSend;
     },
 
+    previewMessage (contactUser) {
+        return contactUser.messages[contactUser.messages.length - 1].message;
+    },
+
     sendMsg (){
 
         //se il campo dei messaggi non è vuoto
@@ -280,18 +284,18 @@ createApp({
         },1);
     },
 
-    searchContact (userInput) {
+/*     searchContact (userInput) {   ricerco in ordine di corrispondenza della lettera
 
         //variabili dove mi salvo gli input e le corrispondnze
         let i = userInput.length;
-        let nameSearch =  userInput.toUpperCase();    /* userInput.charAt(0).toUpperCase() + userInput.slice(1); */
+        let nameSearch = userInput.charAt(0).toUpperCase() + userInput.slice(1);  //userInput.toUpperCase();
         let userFind = [];
     
         //ciclo l'input utente
         this.contacts.forEach((element, index) => {
 
             //trasformo tutte le lettere in maiuscolo
-            const nameContact = element.name.toUpperCase();
+            const nameContact = element.name;   // element.name.toUpperCase();
 
             //faccio sparire tutti i contatti momentaneamente
             this.contacts[index].visible = false; 
@@ -304,15 +308,53 @@ createApp({
             };
         });
 
+    }, */
+
+    searchContact (userInput) {  //ricerco se la lettera/e è presente in tutto il nome
+
+        //variabili dove mi salvo gli input e le corrispondnze
+        let nameSearch = userInput.charAt(0).toUpperCase() + userInput.slice(1);
+        let nameSlice = [];
+        let userFind = [];
+
+        //ciclo l'input utente
+        this.contacts.forEach((element, index) => {
+            const nameContact = element.name;
+
+            //pusho il nome completo in un array
+            nameSlice.push(nameContact.slice());
+
+            //faccio sparire tutti i contatti momentaneamente
+            this.contacts[index].visible = false; 
+
+            //verifico se la lettera inserita è presente nel nome in minuscolo o maiuscolo
+            if (nameSlice[index].search(userInput) >= 0 || nameSlice[index].search(nameSearch) >= 0) {
+
+                //faccio apparire il contatto corrispondente
+                this.contacts[index].visible = true; 
+
+                //pusho in un array i risultati
+                userFind.push(index);
+            }
+        });
+
     },
 
     deleteMsg (numMsg) {
 
         this.statusMsg('deleted', numMsg);
 
+        console.log(numMsg);
+
+        this.contacts[this.activeContact].messages.splice(numMsg, 1);
+
+        console.log(this.contacts[this.activeContact].messages);
+
+        console.log(this.contacts);
+
     },
 
-    statusMsg (status, num) {
+    statusMsg (status) {
 
 
 
@@ -322,15 +364,9 @@ createApp({
         } else if (status === 'received') {
             attribute = 'eb_sender';
 
-        } else {
-
-            console.log(document.getElementById(num));
-
-            document.getElementById(num).classList.add('eb_none')
         }
-
         return attribute;
-    },
+    }
 
     
 }, 
