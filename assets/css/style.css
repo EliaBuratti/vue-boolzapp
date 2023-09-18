@@ -60,7 +60,13 @@ body {
     display: block;
     color: var(--icon-color);
     font-size: 0.75rem;
+}
 
+.eb_msg_preview {
+    max-width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .eb_notification {
@@ -96,6 +102,12 @@ body {
 
 .eb_chat_list div:hover {
     background-color: var(--bg-head-chat);
+}
+
+.eb_text {
+    max-width: 50rem;
+    word-wrap: break-word;
+    padding-top: 4px;
 }
 
 .messages {
@@ -163,10 +175,4 @@ body {
 #sidebar {
     width: 40%;
     background-color: white;
-}
-
-#chat {
-    width: 60%;
-    background-color: palevioletred;
-    height: 4rem;
 }

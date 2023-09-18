@@ -78,7 +78,7 @@
                                         <img :src="contact.avatar" class="eb_picture" alt="avatar">
                                         <div class="eb_info ps-2">
                                             <span class="eb_name">{{contact.name}}</span>
-                                            <span class="eb_status">{{ contact.messages[contact.messages.length - 1].message.slice(0, 25) + '...' }}</span> <!-- visualizzo l'ultimo messaggio e lo taglio se è piu lungo di 25 caratteri -->
+                                            <span class="eb_status eb_msg_preview">{{ contact.messages[contact.messages.length - 1].message }}</span> <!-- visualizzo l'ultimo messaggio e lo taglio se è piu lungo. Tramite css-->
 
                                             <!-- contact.messages[lastMsgSend(contact, 'sent')].message  con questo vedo l'ultimo messaggio inviato da me -->
                                         </div>
@@ -94,6 +94,8 @@
 
                     <!-- sender profile -->
                     <div id="sender_profile">
+
+                        <!-- profile -->
                         <div class="eb_chat d-flex justify-content-between align-items-center p-2">
                             <div class="chat_profile d-flex align-items-center">
                                 <img :src="contacts[activeContact].avatar" class="eb_picture" alt="avatar">
@@ -120,15 +122,12 @@
                             </div>
                         </div>
 
-                        <!-- messages  messageObj.status === 'sent' ? 'eb_user' : 'eb_sender' -->
-                        <div class="messages px-3" id="message-window">
-
+                        <!-- chat -->
+                        <div class="messages px-3 eb_chat" id="message-window">
                             <div  v-for="(messageObj, indexOf) in contacts[activeContact].messages" class="eb_message" :class="statusMsg(messageObj.status)" :id="indexOf">
-
-                                <div > <!-- :class="showMsg ? '' : 'eb_none' " -->
-
-                                    <div class="d-flex align-items-center">
-                                        <!-- menu opzioni -->
+                                <div class="eb_msg_top">
+                                    <div class="d-flex">
+                                        <!-- menu opzioni sinistro -->
                                         <div class="dropdown" :class="messageObj.status === 'received' ? '' : 'eb_none' ">
                                             <button class="btn p-1"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                               <i class="fa-solid fa-chevron-down fa-lg"></i>
@@ -140,9 +139,9 @@
                                           </div>
         
                                         <!-- testo del messaggio -->
-                                        {{ messageObj.message }}
+                                        <div class="eb_text">{{ messageObj.message }}</div> 
         
-                                        <!-- menu opzioni -->
+                                        <!-- menu opzioni destro -->
                                         <div class="dropdown" :class="messageObj.status !== 'received' ? '' : 'eb_none' ">
                                             <button class="btn p-1"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                               <i class="fa-solid fa-chevron-down fa-lg"></i>
@@ -158,6 +157,7 @@
                                     <div class="eb_time_send">
                                         {{ messageObj.date }}
                                     </div>
+
                                 </div>
 
                             </div>

@@ -313,7 +313,6 @@ createApp({
             attribute = 'eb_sender';
 
         } else {
-            const idMsg = String(num);
 
             console.log(document.getElementById(num));
 
