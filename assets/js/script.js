@@ -241,7 +241,7 @@ createApp({
     sendMsg (){
 
         //se il campo dei messaggi non è vuoto
-        if (this.userMsg !== ''){
+        if (this.userMsg.charAt(0) !== ' '){
 
             //recupero l'array corrispondente dei messaggi
             const dataMsg = this.contacts[this.activeContact].messages;
@@ -311,7 +311,8 @@ createApp({
             };
         });
 
-    }, */
+    }, 
+*/
 
     searchContact (userInput) {  //ricerco se la lettera/e è presente in tutto il nome
 
@@ -348,19 +349,21 @@ createApp({
         this.statusMsg('deleted', numMsg);
         
         this.contacts[this.activeContact].messages.splice(numMsg, 1);
-
+        
         const messages = this.contacts[this.activeContact].messages
         
-        //console.log(numMsg);
+        console.log(messages.length);
 
-        //console.log(this.contacts[this.activeContact].messages);
+        if (messages.length === 0) {
+            console.log('vuoto');
+            messages.push({ date: '', message:'', status: 'delete'});
+            document.getElementById(numMsg).classList.add('eb_none');
+        }
 
-        console.log(messages);
-        console.log(this.contacts);
 
     },
 
-    statusMsg (status, msgNum) {
+    statusMsg (status) {
 
 
 
@@ -370,9 +373,8 @@ createApp({
         } else if (status === 'received') {
             attribute = 'eb_sender';
 
-        } else {
-            const markupMsg = document.getElementById(msgNum);
-            markupMsg.classList.add('eb_none');
+        } else if (status === 'delete') {
+            attribute = 'eb_none';
         }
         return attribute;
     }
