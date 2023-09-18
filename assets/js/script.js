@@ -39,6 +39,8 @@ createApp({
 
         userSearch : '', // testo che inserisce l'tente per cercare la chat
 
+        userAlert : true, // avviso che e notifiche sono disattivate
+
         contacts: [
             {
                 name: 'Michele',
@@ -142,7 +144,7 @@ createApp({
             },
             {
                 name: 'Claudia',
-                avatar: './assets/img/avatar_5.jpg',
+                avatar: './assets/img/avatar_6.jpg',
                 visible: true,
                 messages: [
                     {
@@ -268,7 +270,7 @@ createApp({
             const actualDate = new Date().toLocaleString();
 
             //pusho il nuovo messaggio nell'array corrispondente
-            dataMessage.push({ date: actualDate, message:'Ok!', status: 'received'});
+            dataMessage.push({ date: actualDate, message:'Ok, amico!!', status: 'received'});
 
             this.scrollEnd();
         }, 1000);
