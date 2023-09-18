@@ -245,12 +245,10 @@ createApp({
             //pusho il nuovo messaggio nell'array corrispondente
             dataMsg.push({ date: actualDate, message:this.userMsg, status: 'sent'});
     
-            //scorro in fondo alla pagina
-            const chatWindow = document.querySelector('#message-window');
-            chatWindow.scrollTop = chatWindow.scrollHeight;
-    
             //libero il campo input una volta che ho inviato il messaggio
             this.userMsg = '';
+
+            this.scrollEnd();
 
             //risposta automatica
             this.autoResponse(dataMsg);
@@ -267,7 +265,19 @@ createApp({
             //pusho il nuovo messaggio nell'array corrispondente
             dataMessage.push({ date: actualDate, message:'Ok!', status: 'received'});
 
-          }, 1000);
+            this.scrollEnd();
+        }, 1000);
+/*         chatWindow.scrollTop = chatWindow.scrollHeight; */
+
+    },
+
+    scrollEnd () {
+
+        setTimeout (() => {
+            //scorro in fondo alla pagina
+            const chatWindow = document.querySelectorAll('#message-window .eb_message');
+            chatWindow[chatWindow.length - 1].scrollIntoView();
+        },1);
     },
 
     searchContact (userInput) {

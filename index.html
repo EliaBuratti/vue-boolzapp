@@ -125,6 +125,8 @@
                         <!-- chat -->
                         <div class="messages px-3 eb_chat" id="message-window">
                             <div  v-for="(messageObj, indexOf) in contacts[activeContact].messages" class="eb_message" :class="statusMsg(messageObj.status)" :id="indexOf">
+
+                                <!-- testo + opzioni messaggio -->
                                 <div class="eb_msg_top">
                                     <div class="d-flex">
                                         <!-- menu opzioni sinistro -->
@@ -150,14 +152,12 @@
                                               <li><a class="dropdown-item" href="##">Info</a></li>
                                               <li><a class="dropdown-item" @click="deleteMsg(indexOf, 'received')" href="##">Cancella</a></li>
                                             </ul>
-                                        </div>
+                                        </div> 
                                     </div>
-    
-    
-                                    <div class="eb_time_send">
-                                        {{ messageObj.date }}
-                                    </div>
-
+                                </div>
+                                <!-- orario di invio -->
+                                <div class="eb_time_send">
+                                    {{ messageObj.date }}
                                 </div>
 
                             </div>
